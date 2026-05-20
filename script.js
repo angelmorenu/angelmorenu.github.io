@@ -59,14 +59,14 @@ window.addEventListener('DOMContentLoaded', ()=>{
     });
   });
 
-  // Avatar / headshot handling: add a body class when a headshot is present
-  const avatar = document.querySelector('.avatar');
-  if(avatar){
+  // Headshot handling: add a body class when the visible profile image is present
+  const headshot = document.querySelector('.headshot');
+  if(headshot){
     try{
-      if(avatar.complete && avatar.naturalWidth > 0){
+      if(headshot.complete && headshot.naturalWidth > 0){
         document.body.classList.add('has-headshot');
       } else {
-        avatar.addEventListener('load', ()=> document.body.classList.add('has-headshot'));
+        headshot.addEventListener('load', ()=> document.body.classList.add('has-headshot'));
       }
     }catch(e){
       // defensive: ignore any errors related to image detection
