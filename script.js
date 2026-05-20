@@ -48,6 +48,28 @@ function renderProjects(){
 window.addEventListener('DOMContentLoaded', ()=>{
   renderProjects();
 
+  // Light/Dark mode toggle
+  const savedMode = localStorage.getItem('portfolio-mode') || 'light';
+  if (savedMode === 'dark') {
+    document.body.classList.add('dark-mode');
+  }
+
+  document.querySelectorAll('[data-theme-choice]').forEach(btn=>{
+    const isActive = (savedMode === 'dark' && btn.dataset.themeChoice === 'dark') || 
+                     (savedMode === 'light' && btn.dataset.themeChoice === 'light');
+    btn.classList.toggle('is-active', isActive);
+    
+    btn.addEventListener('click', ()=>{
+      const mode = btn.dataset.themeChoice;
+      document.body.classList.toggle('dark-mode', mode === 'dark');
+      localStorage.setItem('portfolio-mode', mode);
+      
+      document.querySelectorAll('[data-theme-choice]').forEach(b=>{
+        b.classList.toggle('is-active', b.dataset.themeChoice === mode);
+      });
+    });
+  });
+
   document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
     anchor.addEventListener('click', e=>{
       const target = document.querySelector(anchor.getAttribute('href'));
