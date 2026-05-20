@@ -41,10 +41,8 @@ body {
 }
 .site-header h1{margin:0;font-size:clamp(2.35rem,4vw,4rem);line-height:1.02;color:var(--ink)}
 
-/* When a headshot is present, hide the profile placeholder and add a subtle accent ring */
+/* When a headshot is present, hide the profile placeholder */
 body.has-headshot .headshot-placeholder{display:none}
-body.has-headshot .avatar{transform:translateY(-2px)}
-.avatar{box-shadow:0 12px 28px color-mix(in srgb, var(--accent) 18%, rgba(11,19,32,0.12))}
 .hero-points{padding-left:18px;margin:16px 0 22px;max-width:64ch;color:var(--muted)}
 .hero-points li{margin-bottom:10px}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px}
