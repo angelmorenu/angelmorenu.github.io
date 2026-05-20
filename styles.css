@@ -40,9 +40,6 @@ body {
   color:var(--accent);
 }
 .site-header h1{margin:0;font-size:clamp(2.35rem,4vw,4rem);line-height:1.02;color:var(--ink)}
-/* Small circular avatar used in hero */
-.hero-header{display:flex;align-items:center;gap:14px}
-.avatar{width:clamp(56px,6vw,84px);height:clamp(56px,6vw,84px);border-radius:999px;object-fit:cover;display:block;border:2px solid var(--paper);box-shadow:0 4px 12px rgba(26,31,46,0.12);transition:transform .2s ease}
 
 /* When a headshot is present, hide the profile placeholder and add a subtle accent ring */
 body.has-headshot .headshot-placeholder{display:none}
