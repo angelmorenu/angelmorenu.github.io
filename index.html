@@ -11,20 +11,20 @@
     <div class="theme-strip"></div>
     <div class="container header-shell">
       <div class="hero-copy">
-        <p class="eyebrow">Turning data into discoveries — from genomes to real-world impact.</p>
+        <p class="eyebrow">Data Science for Life, Evolution, and Health</p>
         <div class="hero-header">
           <h1>Hey! I'm Angel Morenu.</h1>
         </div>
         <!-- Tab navigation (Home, Research, Projects, Tools, Skills, Communication, Opportunities, Contact) -->
         <nav class="tabs" aria-label="Primary">
           <ul>
-            <li><button class="tab-btn is-active" data-tab="home">Home</button></li>
-            <li><button class="tab-btn" data-tab="research">Research</button></li>
-            <li><button class="tab-btn" data-tab="projects">Projects</button></li>
-            <li><button class="tab-btn" data-tab="tools">Tools</button></li>
-            <li><button class="tab-btn" data-tab="skills">Technical Skills</button></li>
-            <li><button class="tab-btn" data-tab="opps">Opportunities</button></li>
-            <li><button class="tab-btn" data-tab="contact" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'}); document.querySelectorAll('.tab-btn').forEach(btn=>btn.classList.remove('is-active')); this.classList.add('is-active'); document.querySelectorAll('.tab-panel').forEach(panel=>panel.hidden=true); document.getElementById('contact').hidden=false;">Contact</button></li>
+            <li><button id="home-tab" class="tab-btn is-active" data-tab="home">Home</button></li>
+            <li><button id="research-tab" class="tab-btn" data-tab="research">Research</button></li>
+            <li><button id="projects-tab" class="tab-btn" data-tab="projects">Projects</button></li>
+            <li><button id="tools-tab" class="tab-btn" data-tab="tools">Tools</button></li>
+            <li><button id="skills-tab" class="tab-btn" data-tab="skills">Technical Skills</button></li>
+            <li><button id="opps-tab" class="tab-btn" data-tab="opps">Opportunities</button></li>
+            <li><button id="contact-tab" class="tab-btn" data-tab="contact" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'}); document.querySelectorAll('.tab-btn').forEach(btn=>btn.classList.remove('is-active')); this.classList.add('is-active'); document.querySelectorAll('.tab-panel').forEach(panel=>panel.hidden=true); document.getElementById('contact').hidden=false;">Contact</button></li>
           </ul>
         </nav>
         <ul class="hero-points">
