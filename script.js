@@ -72,4 +72,46 @@ window.addEventListener('DOMContentLoaded', ()=>{
       // defensive: ignore any errors related to image detection
     }
   }
+
+  // Tab navigation: show/hide panels and sync with URL hash
+  const tabButtons = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.tab-panel');
+
+  function showPanel(name, pushState=true){
+    panels.forEach(p=>{ p.hidden = p.id !== name });
+    tabButtons.forEach(b=> b.classList.toggle('is-active', b.dataset.tab === name));
+    if(pushState){
+      history.replaceState(null, '', '#'+name);
+    }
+  }
+
+  tabButtons.forEach(btn=>{
+    btn.addEventListener('click', ()=> showPanel(btn.dataset.tab));
+  });
+
+  // On load, honor hash or default to home/about sections (home = visible main content)
+  const hash = location.hash ? location.hash.replace('#','') : '';
+  if(hash){
+    // if the hash corresponds to a panel, show it
+    const panel = document.getElementById(hash);
+    if(panel) showPanel(hash, false);
+  }
+
+  // Contact form: open mail client with prefilled content
+  const contactForm = document.getElementById('contact-form');
+  if(contactForm){
+    contactForm.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const form = new FormData(contactForm);
+      const to = 'angelhdbaez@gmail.com';
+      const subject = encodeURIComponent(form.get('subject') || 'Message from portfolio');
+      const bodyLines = [];
+      bodyLines.push('Name: ' + (form.get('name')||''));
+      bodyLines.push('Email: ' + (form.get('email')||''));
+      bodyLines.push('');
+      bodyLines.push(form.get('message')||'');
+      const body = encodeURIComponent(bodyLines.join('\n'));
+      window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+    });
+  }
 });

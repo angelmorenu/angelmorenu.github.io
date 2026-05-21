@@ -15,6 +15,19 @@
         <div class="hero-header">
           <h1>Hey! I'm Angel Morenu.</h1>
         </div>
+        <!-- Tab navigation (Home, Research, Projects, Tools, Skills, Communication, Opportunities, Contact) -->
+        <nav class="tabs" aria-label="Primary">
+          <ul>
+            <li><button class="tab-btn is-active" data-tab="home">Home</button></li>
+            <li><button class="tab-btn" data-tab="research">Research</button></li>
+            <li><button class="tab-btn" data-tab="projects">Projects</button></li>
+            <li><button class="tab-btn" data-tab="tools">Tools</button></li>
+            <li><button class="tab-btn" data-tab="skills">TECHNICAL SKILLS</button></li>
+            <li><button class="tab-btn" data-tab="comm">Science Communication</button></li>
+            <li><button class="tab-btn" data-tab="opps">Opportunities</button></li>
+            <li><button class="tab-btn" data-tab="contact">Contact</button></li>
+          </ul>
+        </nav>
         <ul class="hero-points">
           <li>University of Florida – M.S. in Applied Data Science</li>
           <li>University of Central Florida – B.A. in Religion and Cultural Studies</li>
@@ -51,6 +64,104 @@
   </header>
 
   <main class="container content-shell">
+    <!-- Tab panels: home is the existing about/projects layout; add other panels below -->
+    <section id="research" class="card tab-panel" aria-labelledby="research-tab" hidden>
+      <div class="section-heading">
+        <p class="section-kicker">Research</p>
+        <h2>Selected research</h2>
+      </div>
+      <p>Research summaries, preprints, and write-ups will appear here. Add publications, posters, and links to notebooks or datasets.</p>
+    </section>
+
+    <section id="tools" class="card tab-panel" aria-labelledby="tools-tab" hidden>
+      <div class="section-heading">
+        <p class="section-kicker">Tools</p>
+        <h2>Tools & Infrastructure</h2>
+      </div>
+      <p>Descriptions of tools, pipelines, and engineering work: ETL, containerization, orchestration, cloud services, and reproducible workflows.</p>
+    </section>
+
+    <section id="skills" class="card tab-panel" aria-labelledby="skills-tab" hidden>
+      <div class="section-heading">
+        <p class="section-kicker">Technical Skills</p>
+        <h2>Core competencies</h2>
+      </div>
+      <div class="skills-grid">
+        <div>
+          <h3>Languages</h3>
+          <ul>
+            <li>Python</li>
+            <li>SQL</li>
+            <li>R</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Data Analysis & Statistics</h3>
+          <ul>
+            <li>Exploratory Data Analysis (EDA)</li>
+            <li>Hypothesis Testing</li>
+            <li>Regression & Classification</li>
+            <li>PCA</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Data & ML Tools</h3>
+          <ul>
+            <li>Pandas, NumPy, Scikit-learn</li>
+            <li>Matplotlib, Seaborn</li>
+            <li>Jupyter Notebooks, Excel</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Visualization</h3>
+          <ul>
+            <li>Tableau, Power BI</li>
+            <li>KPI Dashboards, Trend Analysis</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Data Engineering</h3>
+          <ul>
+            <li>ETL pipelines, Data Cleaning, SQL optimization</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Genomics / Population Genetics</h3>
+          <ul>
+            <li>ADMIXTURE, qpAdm, hapROH, PLINK, EIGENSOFT, VCFtools, bcftools, BEDTools, Treemix</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Machine Learning</h3>
+          <ul>
+            <li>Logistic Regression, Random Forest, GridSearchCV, Cross-Validation, ROC-AUC, F1</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Workflow</h3>
+          <ul>
+            <li>Git, Reproducible Analysis, Documentation, Collaboration</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="comm" class="card tab-panel" aria-labelledby="comm-tab" hidden>
+      <div class="section-heading">
+        <p class="section-kicker">Science Communication</p>
+        <h2>Science communication</h2>
+      </div>
+      <p>Examples of communication work: blog posts, conference talks, visualizations, and stakeholder reports.</p>
+    </section>
+
+    <section id="opps" class="card tab-panel" aria-labelledby="opps-tab" hidden>
+      <div class="section-heading">
+        <p class="section-kicker">Opportunities</p>
+        <h2>Opportunities</h2>
+      </div>
+      <p>Currently open to Ph.D positions in archaeogenetics, bioinformatics, biological anthropology, population genetics, data science, and machine learning.</p>
+    </section>
+
     <section id="about" class="card about-card">
       <div class="section-heading">
         <p class="section-kicker">About Me</p>
@@ -95,13 +206,37 @@
       </div>
     </section>
 
-    <section id="contact" class="card">
+    <section id="contact" class="card tab-panel" aria-labelledby="contact-tab" hidden>
       <div class="section-heading">
         <p class="section-kicker">Contact</p>
-        <h2>Let's connect</h2>
+        <h2>Reach out to me</h2>
       </div>
-      <p>Email: <a href="mailto:angelhdbaez@gmail.com">angelhdbaez@gmail.com</a></p>
-      <p>GitHub: <a href="https://github.com/angelmorenu" target="_blank">github.com/angelmorenu</a></p>
+      <p>If you'd like to get in touch, you can email me directly at:</p>
+      <ul>
+        <li><a href="mailto:angelhdbaez@gmail.com">angelhdbaez@gmail.com</a></li>
+        <li><a href="mailto:angel.morenu@ufl.edu">angel.morenu@ufl.edu</a></li>
+      </ul>
+
+      <div class="contact-form">
+        <h3>Send a message</h3>
+        <form id="contact-form">
+          <label> Your Name <input type="text" name="name" required></label>
+          <label> Your Email <input type="email" name="email" required></label>
+          <label> Subject <input type="text" name="subject" required></label>
+          <label> Message <textarea name="message" rows="5" required></textarea></label>
+          <div style="display:flex;gap:10px;align-items:center;margin-top:8px">
+            <button class="primary-btn" type="submit">Send Message</button>
+            <small class="hint">This will open your email client with the message prefilled.</small>
+          </div>
+        </form>
+      </div>
+
+      <div style="margin-top:18px">
+        <p>Social:</p>
+        <a href="https://www.linkedin.com/in/angelmorenu/" target="_blank">LinkedIn</a>
+        &nbsp;•&nbsp;
+        <a href="https://github.com/angelmorenu" target="_blank">GitHub</a>
+      </div>
     </section>
   </main>
 
