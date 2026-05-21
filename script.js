@@ -109,8 +109,44 @@ window.addEventListener('DOMContentLoaded', ()=>{
   const contactForm = document.getElementById('contact-form');
   if(contactForm){
     const action = (contactForm.getAttribute('action') || '').trim();
-    // If there's no action or action indicates mailto, use the old mailto handler.
-    if(!action || action.toLowerCase().startsWith('mailto:')){
+
+    // If the form posts to Formspree, submit via fetch to keep the user on-page
+    if(action && action.includes('formspree.io')){
+      contactForm.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        const statusEl = document.getElementById('form-status');
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        if(submitBtn) submitBtn.disabled = true;
+        if(statusEl) statusEl.textContent = 'Sending…';
+
+        try{
+          const formData = new FormData(contactForm);
+          const res = await fetch(action, {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: formData
+          });
+
+          if(res.ok){
+            if(statusEl) statusEl.textContent = 'Thanks — message sent!';
+            contactForm.reset();
+          } else {
+            // Try to parse error details from JSON response
+            let msg = 'Submission failed. Please try again.';
+            try{ const data = await res.json(); if(data && data.error) msg = data.error; }catch(_){ }
+            if(statusEl) statusEl.textContent = msg;
+          }
+        }catch(err){
+          if(statusEl) statusEl.textContent = 'Network error. Please try again.';
+        }finally{
+          if(submitBtn) submitBtn.disabled = false;
+          // Clear status after a while
+          setTimeout(()=>{ if(statusEl) statusEl.textContent = ''; }, 5000);
+        }
+      });
+
+    } else if(!action || action.toLowerCase().startsWith('mailto:')){
+      // If there's no action or action indicates mailto, use the old mailto handler.
       contactForm.addEventListener('submit', (e)=>{
         e.preventDefault();
         const form = new FormData(contactForm);
@@ -125,6 +161,6 @@ window.addEventListener('DOMContentLoaded', ()=>{
         window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
       });
     }
-    // Otherwise, the form has an external action (e.g., Formspree) and we let the browser submit it normally.
+    // Otherwise: action exists and is not Formspree — allow normal browser submission (e.g., other backends)
   }
 });
