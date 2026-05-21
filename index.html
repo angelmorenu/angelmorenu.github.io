@@ -36,7 +36,6 @@
             <li><button id="home-tab" class="tab-btn is-active" data-tab="home">Home</button></li>
             <li><button id="research-tab" class="tab-btn" data-tab="research">Research</button></li>
             <li><button id="projects-tab" class="tab-btn" data-tab="projects">Projects</button></li>
-            <li><button id="tools-tab" class="tab-btn" data-tab="tools">Tools</button></li>
             <li><button id="skills-tab" class="tab-btn" data-tab="skills">Technical Skills</button></li>
             <li><button id="opps-tab" class="tab-btn" data-tab="opps">Opportunities</button></li>
             <li><button id="contact-tab" class="tab-btn" data-tab="contact" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'}); document.querySelectorAll('.tab-btn').forEach(btn=>btn.classList.remove('is-active')); this.classList.add('is-active'); document.querySelectorAll('.tab-panel').forEach(panel=>panel.hidden=true); document.getElementById('contact').hidden=false;">Contact</button></li>
@@ -87,52 +86,6 @@
       <p class="hint">
         Interested in collaborating or seeing a full list of preprints and datasets? <a href="#contact-form" onclick="document.getElementById('contact-tab').click();">Contact me</a> or visit my <a href="https://github.com/angelmorenu" target="_blank" rel="noopener">GitHub</a>.
       </p>
-    </section>
-
-    <section id="tools" class="card tab-panel" aria-labelledby="tools-tab" hidden>
-      <div class="section-heading">
-        <p class="section-kicker">Tools</p>
-        <h2>Tools & Infrastructure</h2>
-      </div>
-      <p>Descriptions of tools, pipelines, and engineering work: ETL, containerization, orchestration, cloud services, and reproducible workflows.</p>
-      <div class="tools-grid">
-        <div>
-          <h3>Data Science & ML</h3>
-          <ul>
-        <li>Python (Pandas, NumPy, Scikit-learn)</li>
-        <li>Jupyter Notebooks</li>
-        <li>TensorFlow, PyTorch</li>
-        <li>SQL, Apache Spark</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Genomics & Population Genetics</h3>
-          <ul>
-        <li>PLINK, EIGENSOFT</li>
-        <li>ADMIXTURE, qpAdm</li>
-        <li>VCFtools, bcftools, BEDTools</li>
-        <li>Treemix, hapROH</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Ancient DNA Analysis</h3>
-          <ul>
-        <li>GATK (Genome Analysis Toolkit)</li>
-        <li>SAMtools, BWA</li>
-        <li>mapDamage</li>
-        <li>ContamMix, Schmutzi</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Data Engineering & DevOps</h3>
-          <ul>
-        <li>Docker, Singularity</li>
-        <li>Nextflow, Snakemake</li>
-        <li>Git, GitHub</li>
-        <li>AWS, Google Cloud Platform</li>
-          </ul>
-        </div>
-      </div>
     </section>
 
     <section id="skills" class="card tab-panel" aria-labelledby="skills-tab" hidden>
