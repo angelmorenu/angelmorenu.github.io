@@ -1,6 +1,13 @@
 // Populate project cards from public GitHub repos
 const projects = [
   {
+    title: 'Capstone Report: Pathogenic vs. Benign Missense Variants',
+    desc: 'Final report for the capstone project “Machine Learning Classification of Pathogenic vs. Benign Missense Variants Using Protein Language Model Embeddings.”',
+    link: 'docs/Morenu_EGN6933_FinalReport.pdf',
+    linkLabel: 'Report ↗',
+    tech: ['Python', 'Protein Language Models', 'Genomics']
+  },
+  {
     title: 'Multi-Modal CVD Predictor',
     desc: 'A multi-modal cardiovascular disease risk project combining tabular, imaging, and clinical features to support improved risk stratification and outcome modeling.',
     link: 'https://github.com/angelmorenu/multi-modal-cvd-predictor',
@@ -39,7 +46,8 @@ function renderProjects(){
     const el = document.createElement('div');
     el.className = 'project';
     const techBadges = (p.tech||[]).map(t=>`<span class="tech">${t}</span>`).join(' ');
-    const link = p.link ? `<a class="proj-link" href="${p.link}" target="_blank">Repository ↗</a>` : '';
+    const linkText = p.linkLabel || 'Repository ↗';
+    const link = p.link ? `<a class="proj-link" href="${p.link}" target="_blank" rel="noopener">${linkText}</a>` : '';
     el.innerHTML = `<h3>${p.title} ${link}</h3><p>${p.desc}</p><div class="tech-row">${techBadges}</div>`;
     grid.appendChild(el);
   });
