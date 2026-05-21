@@ -105,21 +105,26 @@ window.addEventListener('DOMContentLoaded', ()=>{
     if(panel) showPanel(hash, false);
   }
 
-  // Contact form: open mail client with prefilled content
+  // Contact form: only intercept submit and open mail client when no external action is provided.
   const contactForm = document.getElementById('contact-form');
   if(contactForm){
-    contactForm.addEventListener('submit', (e)=>{
-      e.preventDefault();
-      const form = new FormData(contactForm);
-      const to = 'angelhdbaez@gmail.com';
-      const subject = encodeURIComponent(form.get('subject') || 'Message from portfolio');
-      const bodyLines = [];
-      bodyLines.push('Name: ' + (form.get('name')||''));
-      bodyLines.push('Email: ' + (form.get('email')||''));
-      bodyLines.push('');
-      bodyLines.push(form.get('message')||'');
-      const body = encodeURIComponent(bodyLines.join('\n'));
-      window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
-    });
+    const action = (contactForm.getAttribute('action') || '').trim();
+    // If there's no action or action indicates mailto, use the old mailto handler.
+    if(!action || action.toLowerCase().startsWith('mailto:')){
+      contactForm.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        const form = new FormData(contactForm);
+        const to = 'angelhdbaez@gmail.com';
+        const subject = encodeURIComponent(form.get('subject') || 'Message from portfolio');
+        const bodyLines = [];
+        bodyLines.push('Name: ' + (form.get('name')||''));
+        bodyLines.push('Email: ' + (form.get('email')||''));
+        bodyLines.push('');
+        bodyLines.push(form.get('message')||'');
+        const body = encodeURIComponent(bodyLines.join('\n'));
+        window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+      });
+    }
+    // Otherwise, the form has an external action (e.g., Formspree) and we let the browser submit it normally.
   }
 });
