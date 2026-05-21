@@ -24,7 +24,7 @@
             <li><button class="tab-btn" data-tab="tools">Tools</button></li>
             <li><button class="tab-btn" data-tab="skills">Technical Skills</button></li>
             <li><button class="tab-btn" data-tab="opps">Opportunities</button></li>
-            <li><button class="tab-btn" href="#contact-form" onclick="document.getElementById('contact-tab').click();">Contact me</button></li>
+            <li><button class="tab-btn" data-tab="contact" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'}); document.querySelectorAll('.tab-btn').forEach(btn=>btn.classList.remove('is-active')); this.classList.add('is-active'); document.querySelectorAll('.tab-panel').forEach(panel=>panel.hidden=true); document.getElementById('contact').hidden=false;">Contact</button></li>
           </ul>
         </nav>
         <ul class="hero-points">
@@ -227,7 +227,19 @@
           <label> Message <textarea name="message" rows="5" required></textarea></label>
           <div style="display:flex;gap:10px;align-items:center;margin-top:8px">
             <button class="primary-btn" type="submit">Send Message</button>
-            <small class="hint">This will open your email client with the message prefilled.</small>
+            <script>
+              document.getElementById('contact-form').addEventListener('submit', function(e) {
+              e.preventDefault();
+              const form = e.target;
+              const name = encodeURIComponent(form.name.value);
+              const email = encodeURIComponent(form.email.value);
+              const subject = encodeURIComponent(form.subject.value);
+              const message = encodeURIComponent(form.message.value);
+
+              const mailto = `mailto:angelhdbaez@gmail.com?subject=${subject}&body=Name:%20${name}%0AEmail:%20${email}%0A%0A${message}`;
+              window.location.href = mailto;
+              });
+            </script>
           </div>
         </form>
       </div>
