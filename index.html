@@ -22,8 +22,7 @@
             <li><button class="tab-btn" data-tab="research">Research</button></li>
             <li><button class="tab-btn" data-tab="projects">Projects</button></li>
             <li><button class="tab-btn" data-tab="tools">Tools</button></li>
-            <li><button class="tab-btn" data-tab="skills">TECHNICAL SKILLS</button></li>
-            <li><button class="tab-btn" data-tab="comm">Science Communication</button></li>
+            <li><button class="tab-btn" data-tab="skills">Technical Skills</button></li>
             <li><button class="tab-btn" data-tab="opps">Opportunities</button></li>
             <li><button class="tab-btn" data-tab="contact">Contact</button></li>
           </ul>
@@ -70,7 +69,39 @@
         <p class="section-kicker">Research</p>
         <h2>Selected research</h2>
       </div>
-      <p>Research summaries, preprints, and write-ups will appear here. Add publications, posters, and links to notebooks or datasets.</p>
+      <p>
+        I'm actively pursuing research at the intersection of ancient DNA, evolution, population genetics, phylogenetics, and applied machine learning for genetic data. Below are active themes and short write-ups, plus links to example notebooks, code, and reproducible pipelines.
+      </p>
+
+      <div class="research-grid">
+        <article class="research-card">
+          <h3>Ancient DNA & population structure</h3>
+          <p>End-to-end pipeline examples for aDNA preprocessing, damage-aware filtering, genotype calling, PCA, ADMIXTURE, and qpAdm-style ancestry modeling.</p>
+          <p><a href="https://github.com/angelmorenu/ancient-dna-pipeline" target="_blank" rel="noopener">Code & notebooks</a></p>
+        </article>
+
+        <article class="research-card">
+          <h3>Phylogenetic inference & comparative genomics</h3>
+          <p>Workflows for sequence alignment, tree inference (IQ-TREE/RAxML), bootstrapping, and tree visualization with reproducible notebooks.</p>
+          <p><a href="https://github.com/angelmorenu/phylogeny-notebooks" target="_blank" rel="noopener">Notebooks</a></p>
+        </article>
+
+        <article class="research-card">
+          <h3>Population genetics & statistical analyses</h3>
+          <p>Analyses of allele frequency spectra, F-statistics, haplotype-based tests, and simulation-based inference to probe demographic history.</p>
+          <p><a href="https://github.com/angelmorenu/popgen-analyses" target="_blank" rel="noopener">Examples</a></p>
+        </article>
+
+        <article class="research-card">
+          <h3>Genomic ML & predictive modeling</h3>
+          <p>Feature engineering from variant data, model pipelines (regularized models, ensembles), cross-validation, and interpretability for genotype–phenotype tasks.</p>
+          <p><a href="https://github.com/angelmorenu/genomic-ml" target="_blank" rel="noopener">Examples</a></p>
+        </article>
+      </div>
+
+      <p class="hint">
+        Interested in collaborating or seeing a full list of preprints and datasets? <a href="#contact">Contact me</a> or visit my <a href="https://github.com/angelmorenu" target="_blank" rel="noopener">GitHub</a>.
+      </p>
     </section>
 
     <section id="tools" class="card tab-panel" aria-labelledby="tools-tab" hidden>
@@ -146,20 +177,12 @@
       </div>
     </section>
 
-    <section id="comm" class="card tab-panel" aria-labelledby="comm-tab" hidden>
-      <div class="section-heading">
-        <p class="section-kicker">Science Communication</p>
-        <h2>Science communication</h2>
-      </div>
-      <p>Examples of communication work: blog posts, conference talks, visualizations, and stakeholder reports.</p>
-    </section>
-
     <section id="opps" class="card tab-panel" aria-labelledby="opps-tab" hidden>
       <div class="section-heading">
         <p class="section-kicker">Opportunities</p>
         <h2>Opportunities</h2>
       </div>
-      <p>Currently open to Ph.D positions in archaeogenetics, bioinformatics, biological anthropology, population genetics, data science, and machine learning.</p>
+      <p>Currently open to Ph.D or potential job opportunities in archaeogenetics, bioinformatics, biological anthropology, population genetics, data science, and machine learning.</p>
     </section>
 
     <section id="about" class="card about-card">
