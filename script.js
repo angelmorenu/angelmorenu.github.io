@@ -2,22 +2,18 @@
 const projects = [
   {
     title: 'Capstone Report: Pathogenic vs. Benign Missense Variants',
-    desc: 'Final report for the capstone project “Machine Learning Classification of Pathogenic vs. Benign Missense Variants Using Protein Language Model Embeddings.”',
-    link: 'docs/Morenu_EGN6933_FinalReport.pdf',
-    linkLabel: 'Report ↗',
-    tech: ['Python', 'Protein Language Models', 'Genomics']
+    desc: 'Machine learning classification of pathogenic versus benign missense variants using protein language model embeddings and reproducible analysis notebooks.',
+    links: [
+      { href: 'docs/Morenu_EGN6933_FinalReport.pdf', label: 'Report ↗' },
+      { href: 'https://github.com/angelmorenu/egn6933-capstone-variant-pathogenicity-esm2', label: 'Repository ↗' }
+    ],
+    tech: ['Python', 'Bioinformatics', 'Protein Language Models', 'Genomics', 'ML']
   },
   {
     title: 'Multi-Modal CVD Predictor',
     desc: 'A multi-modal cardiovascular disease risk project combining tabular, imaging, and clinical features to support improved risk stratification and outcome modeling.',
     link: 'https://github.com/angelmorenu/multi-modal-cvd-predictor',
     tech: ['Python', 'Machine Learning', 'Jupyter']
-  },
-  {
-    title: 'Variant Pathogenicity (ESM2)',
-    desc: 'Machine learning classification of pathogenic versus benign missense variants using protein language model embeddings and reproducible analysis notebooks.',
-    link: 'https://github.com/angelmorenu/egn6933-capstone-variant-pathogenicity-esm2',
-    tech: ['Python', 'Bioinformatics', 'ML']
   },
   {
     title: 'Transformer Regulatory DNA',
@@ -46,9 +42,10 @@ function renderProjects(){
     const el = document.createElement('div');
     el.className = 'project';
     const techBadges = (p.tech||[]).map(t=>`<span class="tech">${t}</span>`).join(' ');
-    const linkText = p.linkLabel || 'Repository ↗';
-    const link = p.link ? `<a class="proj-link" href="${p.link}" target="_blank" rel="noopener">${linkText}</a>` : '';
-    el.innerHTML = `<h3>${p.title} ${link}</h3><p>${p.desc}</p><div class="tech-row">${techBadges}</div>`;
+    const links = p.links
+      ? p.links.map(link => `<a class="proj-link" href="${link.href}" target="_blank" rel="noopener">${link.label}</a>`).join(' ')
+      : (p.link ? `<a class="proj-link" href="${p.link}" target="_blank" rel="noopener">${p.linkLabel || 'Repository ↗'}</a>` : '');
+    el.innerHTML = `<h3>${p.title}${links ? ' ' + links : ''}</h3><p>${p.desc}</p><div class="tech-row">${techBadges}</div>`;
     grid.appendChild(el);
   });
 }
