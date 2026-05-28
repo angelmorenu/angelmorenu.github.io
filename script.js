@@ -17,6 +17,13 @@ const projects = [
     tech: ['Python', 'Data Science', 'Machine Learning', 'Time-Series Forecasting', 'Geospatial Analysis']
   },
   {
+    title: 'Global Sensitivity & Uncertainty Analysis (GSUA) for d50 (DP)',
+    desc: 'Graduate-level Morris (Elementary Effects) screening of a sediment particle-size model (d50/DP), including data inspection, distribution assignment with histograms, two-phase sensitivity runs (with/without ITILLAGE), and interpretation of \u03bc, \u03bc*, and \u03c3 for decision-focused uncertainty analysis.',
+    link: 'docs/Morenu_GSUA_d50_report.pdf',
+    linkLabel: 'Report ↗',
+    tech: ['Python', 'Sensitivity Analysis', 'Morris Method', 'Uncertainty Quantification', 'Hydrology']
+  },
+  {
     title: 'Multi-Modal CVD Predictor',
     desc: 'A multi-modal cardiovascular disease risk project combining tabular, imaging, and clinical features to support improved risk stratification and outcome modeling.',
     link: 'https://github.com/angelmorenu/multi-modal-cvd-predictor',
