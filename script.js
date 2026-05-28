@@ -10,6 +10,13 @@ const projects = [
     tech: ['Python', 'Bioinformatics', 'Protein Language Models', 'Genomics', 'ML']
   },
   {
+    title: 'NOAA Hurricane Predictions — Term Project (EGN5442)',
+    desc: 'A comprehensive, graduate-level analysis of historical NOAA tropical cyclone data. Includes data science pipeline (cleaning, exploration, geospatial/temporal visualization), random forest baseline classifier for storm analysis, SARIMAX time-series forecasting models, and reproducible code with figures and final report.',
+    link: 'docs/Group4_EGN5442_Project_Report.pdf',
+    linkLabel: 'Report ↗',
+    tech: ['Python', 'Data Science', 'Machine Learning', 'Time-Series Forecasting', 'Geospatial Analysis']
+  },
+  {
     title: 'Multi-Modal CVD Predictor',
     desc: 'A multi-modal cardiovascular disease risk project combining tabular, imaging, and clinical features to support improved risk stratification and outcome modeling.',
     link: 'https://github.com/angelmorenu/multi-modal-cvd-predictor',
