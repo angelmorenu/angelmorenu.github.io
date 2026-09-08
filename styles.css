@@ -29,7 +29,7 @@ a { color: var(--teal); }
 .page-shell { padding: 28px 0 55px; }
 .profile-card, .section-card, .side-card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); }
 .profile-card { overflow: hidden; }
-.cover-band { height: 190px; background-image: linear-gradient(90deg, rgba(16,46,75,.88), rgba(23,61,98,.48) 55%, rgba(23,138,141,.3)), url("images/cover%20photo.png"); background-position: center; background-size: cover; position: relative; }
+.cover-band { height: 190px; background-image: linear-gradient(90deg, rgba(16,46,75,.88), rgba(23,61,98,.48) 55%, rgba(23,138,141,.3)), url("images/cover-photo.png"); background-position: center; background-size: cover; position: relative; }
 .profile-main { display: flex; gap: 27px; padding: 0 34px 25px; }
 .avatar-wrap { flex: 0 0 190px; margin-top: -95px; position: relative; z-index: 1; }
 .avatar { width: 190px; height: 190px; border: 5px solid var(--surface); border-radius: 8px; object-fit: cover; box-shadow: 0 3px 9px rgba(16,46,75,.18); }
